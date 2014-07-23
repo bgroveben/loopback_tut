@@ -27,5 +27,9 @@
   "Person": {
     "dataSource": "db",
     "public": true
+  },
+  "account": {
+    "dataSource": "accountDB",
+    "public": true
   }
 }

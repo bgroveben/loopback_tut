@@ -4,12 +4,62 @@
     "connector": "memory"
   },
   "accountDB": {
-    "name": "accountDB",
-    "connector": "mysql",
     "host": "demo.strongloop.com",
     "port": 3306,
     "database": "demo",
     "username": "demo",
-    "password": "L00pBack"
+    "password": "L00pBack",
+    "name": "accountDB",
+    "connector": "mysql"
+  },
+  "Sharepoint": {
+    "name": "Sharepoint",
+    "connector": "rest",
+    "debug": "true",
+    "operations": [{
+        "template": {
+           "method": "GET",
+           "url": "http://sharepoint.global.strongloop.com/Corporate/_api/web/lists/getByTitle('StrongLoopCorporate')/items",
+           "headers": {
+               "accept": "application/json; odata=verbose",
+               "content-type": "application/json"
+           },
+           "query": {
+               "$orderby": "{orderby}",
+                "$top": "{top}"
+              },
+           "responsePath": "$.results[0]"
+         },
+         "functions": {
+             "getFileList": ["orderby", "top"]
+         }
+     } ,
+         {
+          "template": {
+             "method": "GET",
+             "url": "http://sharepoint.global.strongloop.com/Corporate/_api/web/lists/GetByTitle('StrongLoopCorporate')/items({fileID})/File",
+             "headers": {
+                 "accept": "application/json; odata=verbose",
+                 "content-type": "application/json"
+              },
+             "responsePath": "$.results[0]"
+            },
+            "functions": {
+               "getFileAttributes": ["fileID"]
+            }
+     }]
+  },
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "accountDB": {
+    "host": "demo.strongloop.com",
+    "port": 3306,
+    "database": "demo",
+    "username": "demo",
+    "password": "L00pBack",
+    "name": "accountDB",
+    "connector": "mysql"
   }
 }

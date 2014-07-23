@@ -31,5 +31,9 @@
   "account": {
     "dataSource": "accountDB",
     "public": true
+  },
+  "Document": {
+    "dataSource": "Sharepoint",
+    "public": true
   }
 }

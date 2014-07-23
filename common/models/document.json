@@ -1,0 +1,31 @@
+{
+  "name": "Document",
+  "plural": "Documents",
+  "base": "Model",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "size": {
+      "type": "string",
+      "required": true
+    },
+    "date_created": {
+      "type": "date",
+      "required": true
+    },
+    "last_modified": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
